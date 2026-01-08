@@ -138,21 +138,20 @@
     </div>
   </aside>
 
-  <header class="d-lg-none bg-brand sticky top-0 z-[1000] border-b border-white/5 relative">
-    
+  <header class="d-lg-none bg-brand sticky top-0 z-[1000] border-b border-white/5">
     <div class="flex justify-between items-center py-6 px-6 bg-brand relative z-[1001]">
       <img src="logo-azul.png" alt="Logo" width="100" class="invert brightness-0">
-      <button class="text-sand text-[10px] font-bold uppercase tracking-widest border-0 bg-transparent focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#mMenu" aria-expanded="false" aria-controls="mMenu">
+      <button id="mobileMenuBtn" class="text-sand text-[10px] font-bold uppercase tracking-widest border-0 bg-transparent focus:outline-none" type="button">
         Menu
       </button>
     </div>
 
-    <div class="collapse absolute top-full left-0 w-full bg-brand border-b border-white/10 shadow-2xl z-[1000]" id="mMenu">
+    <div id="mMenuContent" class="hidden absolute top-full left-0 w-full bg-brand border-b border-white/10 shadow-2xl z-[1000]">
       <ul class="list-unstyled p-12 text-center space-y-8 m-0">
-        <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">O Fotografo</a></li>
-        <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Portfólio</a></li>
-        <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Contato</a></li>
-        <li><a href="#depoimentos" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Depoimentos</a></li>
+        <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="toggleMobileMenu()">O Fotografo</a></li>
+        <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="toggleMobileMenu()">Portfólio</a></li>
+        <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="toggleMobileMenu()">Contato</a></li>
+        <li><a href="#depoimentos" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="toggleMobileMenu()">Depoimentos</a></li>
       </ul>
     </div>
   </header>
@@ -329,20 +328,40 @@
       }
     };
 
-    // Função para fechar o menu mobile automaticamente ao clicar num link
-    function closeMMenu() {
-      const menu = document.getElementById('mMenu');
-      const bsCollapse = bootstrap.Collapse.getInstance(menu);
-      if (bsCollapse) {
-        bsCollapse.hide();
+    // LOGICA DO MENU MOBILE CORRIGIDA
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const menuContent = document.getElementById('mMenuContent');
+
+    function toggleMobileMenu() {
+      if (menuContent.classList.contains('hidden')) {
+        menuContent.classList.remove('hidden');
+        menuBtn.textContent = 'Fechar';
+      } else {
+        menuContent.classList.add('hidden');
+        menuBtn.textContent = 'Menu';
       }
     }
 
+    if(menuBtn) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Fecha ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (menuContent && !menuContent.contains(e.target) && !menuBtn.contains(e.target)) {
+        menuContent.classList.add('hidden');
+        menuBtn.textContent = 'Menu';
+      }
+    });
+
     const topBtn = document.getElementById('toTop');
     window.onscroll = function() {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      if (topBtn && (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800)) {
         topBtn.classList.add('show');
-      } else {
+      } else if (topBtn) {
         topBtn.classList.remove('show');
       }
     };
