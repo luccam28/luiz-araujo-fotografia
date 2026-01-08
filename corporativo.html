@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Corporativo Premium | Luiz Araujo Fotografia</title>
+  
+  <meta name="description" content="Retratos corporativos premium em São Paulo por Luiz Araujo. A essência da liderança e autoridade através do olhar.">
+  
+  <link rel="icon" type="image/png" href="logo-branco.png">
+  <link rel="apple-touch-icon" href="logo-branco.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#001A3D', sand: '#F9F7F2' },
+          fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --brand: #001A3D; --sand: #F9F7F2; }
+    body { background-color: var(--brand); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--sand); overflow-x: hidden; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    
+    @media (min-width: 992px) {
+      .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 90px; background: var(--brand); border-right: 1px solid rgba(249,247,242,0.08); z-index: 1000; display: flex; flex-direction: column; }
+      .sidebar-top { padding: 45px 0; display: flex; justify-content: center; }
+      .sidebar-top img { width: 55px; filter: invert(1) brightness(100%); opacity: 0.8; }
+      .sidebar-center { flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+      .nav-container-rotate { transform: rotate(-90deg); display: flex; gap: 40px; white-space: nowrap; width: max-content; }
+      .nav-link-custom { font-size: 9px; letter-spacing: 0.7em; text-transform: uppercase; font-weight: 700; text-decoration: none; color: rgba(249,247,242,0.3); transition: 0.5s ease; padding: 10px 0; }
+      .nav-link-custom:hover { color: var(--sand); letter-spacing: 0.8em; }
+      main { margin-left: 90px; }
+    }
+
+    .photo-frame { overflow: hidden; background: #001229; position: relative; width: 100%; }
+    .photo-frame img { 
+      width: 100%; 
+      height: auto; 
+      max-height: 75vh; 
+      object-fit: contain; 
+      transition: 1.5s ease; 
+      opacity: 0.9; 
+    }
+
+    .page-title-reveal { animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1); }
+    @keyframes reveal { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+
+    .btn-back { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--sand); text-decoration: none; display: inline-flex; align-items: center; opacity: 0.4; transition: 0.4s; }
+    .btn-back:hover { opacity: 1; transform: translateX(-5px); }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar d-none d-lg-flex">
+    <div class="sidebar-top">
+      <a href="index.html"><img src="logo-azul.png" alt="Logo"></a>
+    </div>
+    <div class="sidebar-center">
+      <nav class="nav-container-rotate">
+        <a href="index.html#contato" class="nav-link-custom">Contato</a>
+        <a href="index.html#portfolio" class="nav-link-custom">Portfólio</a>
+        <a href="index.html#sobre" class="nav-link-custom">O Olhar</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <section class="pt-24 md:pt-40 pb-20 container">
+      <a href="index.html#portfolio" class="btn-back mb-16">
+        <svg class="mr-3" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+        Portfólio
+      </a>
+      <div class="page-title-reveal">
+        <span class="text-[10px] font-bold uppercase tracking-[0.8em] opacity-30 block mb-6">01. Corporativo</span>
+        <h1 class="serif text-5xl md:text-8xl italic mb-8">Corporativo <span class="opacity-40 not-italic">Premium</span></h1>
+        <p class="max-w-2xl text-base md:text-lg font-light opacity-50 leading-relaxed italic">
+          A autoridade é construída nos detalhes. Retratos desenhados para líderes que entendem que a imagem é seu maior ativo estratégico.
+        </p>
+      </div>
+    </section>
+
+    <section class="container pb-40">
+      <div class="row g-4 md:g-5 justify-content-center">
+        <div class="col-lg-10 mb-12">
+          <div class="photo-frame"><img src="corporativo1.jpg" alt="1"></div>
+        </div>
+        <div class="col-lg-5 col-md-6 mb-12">
+          <div class="photo-frame"><img src="corporativo2.jpg" alt="2"></div>
+        </div>
+        <div class="col-lg-5 col-md-6 mb-12 lg:mt-24">
+          <div class="photo-frame"><img src="corporativo3.jpg" alt="3"></div>
+        </div>
+        <div class="col-lg-6 mb-12">
+          <div class="photo-frame"><img src="corporativo4.jpg" alt="4"></div>
+        </div>
+        <div class="col-lg-10">
+          <div class="photo-frame"><img src="corporativo5.jpg" alt="5"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 bg-brand">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-[10px] uppercase tracking-widest opacity-30 text-center text-md-start">
+            © <span id="year"></span> Luiz Araujo Fotografia
+          </div>
+          <div class="col-md-4 text-center my-10 my-md-0">
+             <a href="index.html"> <img src="logo-azul.png" alt="Logo" width="130" class="invert brightness-0 mx-auto opacity-50"> </a>
+          </div>
+          <div class="col-md-4 text-center text-md-end space-x-8">
+            <a href="https://instagram.com/imluizaraujo" class="text-[10px] uppercase tracking-widest no-underline text-sand/50 hover:text-sand transition">Instagram</a>
+            <a href="https://instagram.com/imluizaraujo.eventos" class="text-[10px] uppercase tracking-widest no-underline text-sand/50 hover:text-sand transition">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

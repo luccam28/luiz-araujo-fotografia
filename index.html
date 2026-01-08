@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luiz Araujo | Fotógrafo Retratista em São Paulo</title>
+  
+  <meta name="description" content="Luiz Araujo é fotógrafo retratista especializado em ensaios, eventos e retratos corporativos em São Paulo. Foco na essência e verdade do indivíduo.">
+  <meta name="keywords" content="fotógrafo retratista sp, ensaios fotográficos são paulo, retrato corporativo, luiz araujo fotografia, fotografia de eventos">
+  <link rel="canonical" href="https://seusite.com.br/">
+  
+  <meta property="og:title" content="Luiz Araujo Fotografia | A Essência em Foco">
+  <meta property="og:description" content="Especialista em capturar a verdade por trás do olhar.">
+  <meta property="og:image" content="logo-azul.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" href="logo-branco.png">
+  <link rel="apple-touch-icon" href="logo-branco.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#001A3D', sand: '#F9F7F2' },
+          fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --brand: #001A3D; --sand: #F9F7F2; }
+    body { background-color: var(--brand); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--sand); overflow-x: hidden; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    
+    /* --- SIDEBAR COM FONTE REDUZIDA (9px) --- */
+    @media (min-width: 992px) {
+      .sidebar { 
+        position: fixed; top: 0; left: 0; bottom: 0; width: 90px; 
+        background: var(--brand); border-right: 1px solid rgba(249,247,242,0.08); 
+        z-index: 1000; display: flex; flex-direction: column;
+      }
+
+      .sidebar-top { padding: 40px 0; display: flex; justify-content: center; }
+      .sidebar-top img { width: 60px; filter: invert(1) brightness(100%); opacity: 0.8; }
+
+      .sidebar-center {
+        flex-grow: 1; display: flex; align-items: center; justify-content: center;
+        position: relative;
+      }
+      
+      .nav-container-rotate {
+        transform: rotate(-90deg);
+        display: flex; gap: 35px; white-space: nowrap;
+        width: max-content;
+      }
+
+      /* FONTE DIMINUÍDA AQUI */
+      .nav-link-custom {
+        font-size: 9px; /* Fonte bem pequena e elegante */
+        letter-spacing: 0.7em; /* Mais espaçamento para compensar o tamanho */
+        text-transform: uppercase; 
+        font-weight: 700; text-decoration: none; 
+        color: rgba(249,247,242,0.3);
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 10px 0; /* Aumenta a área de toque */
+      }
+      .nav-link-custom:hover { color: var(--sand); opacity: 1; }
+
+      .sidebar-bottom { padding: 40px 0; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+      
+      main { margin-left: 90px; }
+    }
+
+    /* --- ESTILO PORTFOLIO --- */
+    .portfolio-item { position: relative; overflow: hidden; background: #000; }
+    .portfolio-item img { transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0.8; }
+    .portfolio-item:hover img { transform: scale(1.05); opacity: 0.4; }
+    .portfolio-overlay { 
+      position: absolute; inset: 0; display: flex; flex-direction: column; 
+      justify-content: flex-end; padding: 35px; opacity: 0; transition: 0.7s ease;
+      background: linear-gradient(to top, rgba(0,26,61,0.8), transparent);
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+    .sidebar-icon { color: var(--sand); opacity: 0.4; transition: 0.3s; cursor: pointer; text-decoration: none; }
+    .sidebar-icon:hover { opacity: 1; transform: scale(1.1); }
+    .wa-icon:hover { color: #25D366; }
+
+    .up-btn { opacity: 0; visibility: hidden; transition: 0.5s; cursor: pointer; }
+    .up-btn.show { opacity: 0.4; visibility: visible; }
+
+    /* --- LGPD --- */
+    .lgpd-modal { 
+      position: fixed; bottom: 30px; left: 120px; right: 30px; 
+      background: white; color: var(--brand); padding: 25px; z-index: 2000; 
+      border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: none; 
+    }
+    @media (max-width: 991px) { .lgpd-modal { left: 20px; right: 20px; } }
+
+    .btn-lux { 
+      padding: 18px 50px; color: var(--sand); text-transform: uppercase; 
+      letter-spacing: 5px; font-size: 10px; font-weight: 700; 
+      border: 1px solid rgba(249,247,242,0.3); transition: 0.5s; 
+      background: transparent; text-decoration: none; display: inline-block; 
+    }
+    .btn-lux:hover { border-color: var(--sand); background: var(--sand); color: var(--brand); }
+
+    .carousel-item img { height: 100vh; width: 100%; object-fit: cover; filter: brightness(0.45); }
+  </style>
+</head>
+<body>
+
+  <div id="lgpd" class="lgpd-modal">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="text-[11px] m-0 font-medium tracking-wide">Valorizamos sua privacidade. Ao navegar, você concorda com o uso de cookies para uma experiência completa conforme a LGPD.</p>
+      <button onclick="acceptLGPD()" class="bg-brand text-white text-[9px] font-bold uppercase tracking-widest px-10 py-3 shrink-0 hover:opacity-90 transition">Concordar</button>
+    </div>
+  </div>
+
+  <aside class="sidebar d-none d-lg-flex">
+    <div class="sidebar-top">
+      <a href="#"><img src="logo-azul.png" alt="Luiz Araujo Logo"></a>
+    </div>
+    
+    <div class="sidebar-center">
+      <div class="nav-container-rotate">
+        <a href="#contato" class="nav-link-custom">Contato</a>
+        <a href="#depoimentos" class="nav-link-custom">Depoimentos</a>
+        <a href="#portfolio" class="nav-link-custom">Portfólio</a>
+        <a href="#sobre" class="nav-link-custom">O Olhar</a>
+      </div>
+    </div>
+
+  
+  </aside>
+
+  <header class="d-lg-none bg-brand py-6 px-6 sticky top-0 z-[1000] flex justify-between items-center border-b border-white/5">
+    <img src="logo-azul.png" alt="Logo" width="100" class="invert brightness-0">
+    <button class="text-sand text-[10px] font-bold uppercase tracking-widest" data-bs-toggle="collapse" data-bs-target="#mMenu">Menu</button>
+  </header>
+  <div class="collapse d-lg-none bg-brand border-b border-white/10" id="mMenu">
+    <ul class="list-unstyled p-12 text-center space-y-8">
+      <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">O Olhar</a></li>
+      <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Portfólio</a></li>
+      <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Contato</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="relative h-screen overflow-hidden">
+      <div id="hero" class="carousel slide carousel-fade h-full" data-bs-ride="carousel">
+        <div class="carousel-inner h-full">
+          <div class="carousel-item active h-full"><img src="casamento6.jpg" alt="Obra 1"></div>
+          <div class="carousel-item h-full"><img src="olivia1.jpg" alt="Obra 2"></div>
+          <div class="carousel-item h-full"><img src="bodas.jpg" alt="Obra 3"></div>
+        </div>
+      </div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-30">
+        <img src="logo-azul.png" alt="Luiz Araujo" width="320" class="invert brightness-0 mb-10 opacity-80">
+        <h1 class="serif text-5xl md:text-[8vw] italic leading-none mb-4">A Essência em <span class="not-italic opacity-40">Foco</span></h1>
+        <p class="text-[10px] uppercase tracking-[1.2em] opacity-60">São Paulo & Worldwide</p>
+      </div>
+    </section>
+
+    <section id="sobre" class="py-48 container">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6">
+          <img src="luiz-fotografo.jpg" alt="Luiz Araujo" class="w-full grayscale border border-white/5 shadow-2xl">
+        </div>
+        <div class="col-lg-6 lg:-ml-20 z-10">
+          <div class="bg-sand text-brand p-12 md:p-24 shadow-2xl border-l border-brand/5">
+            <span class="text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block opacity-40 italic">O Fotógrafo</span>
+            <h2 class="serif text-7xl md:text-8xl italic mb-10 leading-none">Luiz <br> Araujo</h2>
+            <div class="space-y-6 font-light text-lg leading-relaxed opacity-80">
+              <p>Formado em RH, utilizo a psicologia da conexão humana para extrair o retrato que nem você sabia que existia.</p>
+              <p>Não é sobre sorrisos forçados. É sobre a pausa, o olhar que desvia, a verdade que escapa entre um segundo e outro.</p>
+            </div>
+            <a href="https://wa.me/5511979629275" class="mt-12 btn-lux !border-brand !text-brand hover:!bg-brand hover:!text-sand">Agendar Sessão</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-20">
+      <div class="container-fluid px-lg-20">
+        <div class="mb-32 text-right">
+          <h2 class="serif text-[10vw] italic leading-none opacity-5 uppercase select-none">Meu Portfólio</h2>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-7 mb-4">
+              <a href="corporativo.html" class="portfolio-item block no-underline">
+                <img src="1.jpg" alt="Trabalho" class="w-full h-[80vh] object-cover">
+                  <div class="portfolio-overlay">
+                    <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">01. Estúdio</span>
+                      <p class="serif text-5xl italic text-sand">Corporativo Premium</p>
+                  </div>
+              </a>
+        </div>
+
+          <div class="col-md-5 mt-md-40 mb-4">
+            <a href="lifestyle.html" class="portfolio-item block no-underline">
+              <img src="2.jpg" alt="Trabalho" class="w-full h-[60vh] object-cover">
+                <div class="portfolio-overlay">
+                  <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">02. Lifestyle</span>
+                  <p class="serif text-5xl italic text-sand">Art & Essence</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4 mb-4">
+              <a href="momentos.html" class="portfolio-item block no-underline">
+                <img src="batizado.jpg" alt="Trabalho" class="w-full h-[50vh] object-cover">
+                    <div class="portfolio-overlay">
+                      <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">03. Momentos</span>
+                      <p class="serif text-4xl italic text-sand">Ritos & Batizados</p>
+                    </div>
+                </a>
+            </div>
+
+          <div class="col-md-8 mb-4">
+            <a href="documental.html" class="portfolio-item block no-underline">
+              <img src="olivia.jpg" alt="Trabalho" class="w-full h-[70vh] object-cover">
+                <div class="portfolio-overlay">
+                  <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">04. Documental</span>
+                  <p class="serif text-5xl italic text-sand">Eventos de Luxo</p>
+                </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="py-40 bg-sand text-brand">
+      <div class="container text-center">
+        <div id="testim" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="max-w-4xl mx-auto px-4">
+                <p class="serif text-4xl md:text-6xl italic leading-tight mb-12">"Há uma dignidade silenciosa nas fotos do Luiz que eu nunca encontrei em outro fotógrafo em SP."</p>
+                <p class="text-[11px] font-bold uppercase tracking-[0.5em]">— Mariana S.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="max-w-4xl mx-auto px-4">
+                <p class="serif text-4xl md:text-6xl italic leading-tight mb-12">"As fotos do batizado parecem pinturas. Ele capturou a alma do momento sem interferir nele."</p>
+                <p class="text-[11px] font-bold uppercase tracking-[0.5em]">— Ricardo F.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="py-60 bg-brand relative overflow-hidden">
+      <div class="container relative z-10">
+        <div class="row align-items-center">
+          <div class="col-lg-7 text-center text-lg-start">
+            <span class="text-[10px] font-bold uppercase tracking-[0.8em] mb-8 block opacity-40">Entre em Contato</span>
+            <h2 class="serif text-6xl md:text-[8vw] italic leading-none mb-12">Vamos criar algo <br><span class="opacity-40 not-italic">atemporal?</span></h2>
+          </div>
+          <div class="col-lg-5">
+            <div class="flex flex-col space-y-12 items-center lg:items-start">
+              <a href="https://wa.me/5511979629275" class="btn-lux w-full md:w-auto text-center">Enviar WhatsApp</a>
+              
+              <div class="flex flex-col space-y-6 pt-8 border-t border-white/10 w-full">
+                <a href="mailto:contato@luizaraujo.com.br" class="contact-link flex items-center group">
+                  <span class="opacity-20 mr-4 group-hover:mr-8 transition-all">01</span> contato@luizaraujo.com.br
+                </a>
+
+                <a href="https://instagram.com/imluizaraujo" target="_blank" class="contact-link flex items-center group">
+                  <span class="opacity-20 mr-4 group-hover:mr-8 transition-all">02</span> @imluizaraujo
+                </a>
+
+                 <a href="https://instagram.com/imluizaraujo.eventos" target="_blank" class="contact-link flex items-center group">
+                  <span class="opacity-20 mr-4 group-hover:mr-8 transition-all">03</span> @imluizaraujo.eventos
+                </a>
+                <p class="text-[9px] uppercase tracking-[0.5em] opacity-30 mt-10">São Paulo, SP — Atendimento Global</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -bottom-20 -right-20 serif text-[25vw] italic opacity-[0.02] select-none">Contato</div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 bg-brand">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-[10px] uppercase tracking-widest opacity-30 text-center text-md-start">
+            © <span id="year"></span> Luiz Araujo Fotografia
+          </div>
+          <div class="col-md-4 text-center my-10 my-md-0">
+             <a href="#"> <img src="logo-azul.png" alt="Logo" width="130" class="invert brightness-0 mx-auto opacity-50"> </a>
+          </div>
+          <div class="col-md-4 text-center text-md-end space-x-8">
+            <a href="https://instagram.com/imluizaraujo" class="text-[10px] uppercase tracking-widest no-underline text-sand/50 hover:text-sand transition">Instagram</a>
+            <a href="https://instagram.com/imluizaraujo.eventos" class="text-[10px] uppercase tracking-widest no-underline text-sand/50 hover:text-sand transition">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    function acceptLGPD() {
+      document.getElementById('lgpd').style.display = 'none';
+      localStorage.setItem('lgpd_accepted', 'true');
+    }
+
+    window.onload = () => {
+      if (!localStorage.getItem('lgpd_accepted')) {
+        setTimeout(() => { document.getElementById('lgpd').style.display = 'block'; }, 2000);
+      }
+    };
+
+    const topBtn = document.getElementById('toTop');
+    window.onscroll = function() {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+        topBtn.classList.add('show');
+      } else {
+        topBtn.classList.remove('show');
+      }
+    };
+  </script>
+</body>
+</html>
