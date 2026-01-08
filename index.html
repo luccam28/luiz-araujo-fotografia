@@ -139,17 +139,20 @@
   
   </aside>
 
-  <header class="d-lg-none bg-brand py-6 px-6 sticky top-0 z-[1000] flex justify-between items-center border-b border-white/5">
-    <img src="logo-azul.png" alt="Logo" width="100" class="invert brightness-0">
-    <button class="text-sand text-[10px] font-bold uppercase tracking-widest" data-bs-toggle="collapse" data-bs-target="#mMenu">Menu</button>
+  <header class="d-lg-none bg-brand sticky top-0 z-[1000] border-b border-white/5">
+    <div class="flex justify-between items-center py-6 px-6">
+      <img src="logo-azul.png" alt="Logo" width="100" class="invert brightness-0">
+      <button class="text-sand text-[10px] font-bold uppercase tracking-widest" data-bs-toggle="collapse" data-bs-target="#mMenu">Menu</button>
+    </div>
+
+    <div class="collapse bg-brand border-t border-white/10" id="mMenu">
+      <ul class="list-unstyled p-12 text-center space-y-8 m-0">
+        <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">O Fotografo</a></li>
+        <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Portfólio</a></li>
+        <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Contato</a></li>
+      </ul>
+    </div>
   </header>
-  <div class="collapse d-lg-none bg-brand border-b border-white/10" id="mMenu">
-    <ul class="list-unstyled p-12 text-center space-y-8">
-      <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">O Olhar</a></li>
-      <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Portfólio</a></li>
-      <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Contato</a></li>
-    </ul>
-  </div>
 
   <main>
     <section class="relative h-screen overflow-hidden">
@@ -333,4 +336,5 @@
     };
   </script>
 </body>
+
 </html>
