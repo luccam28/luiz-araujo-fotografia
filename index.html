@@ -37,7 +37,7 @@
     body { background-color: var(--brand); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--sand); overflow-x: hidden; }
     .serif { font-family: 'Cormorant Garamond', serif; }
     
-    /* --- SIDEBAR COM FONTE REDUZIDA (9px) --- */
+    /* --- SIDEBAR CUSTOMIZADA --- */
     @media (min-width: 992px) {
       .sidebar { 
         position: fixed; top: 0; left: 0; bottom: 0; width: 90px; 
@@ -46,7 +46,8 @@
       }
 
       .sidebar-top { padding: 40px 0; display: flex; justify-content: center; }
-      .sidebar-top img { width: 60px; filter: invert(1) brightness(100%); opacity: 0.8; }
+      /* Logo aumentada para 75px */
+      .sidebar-top img { width: 75px; filter: invert(1) brightness(100%); opacity: 0.8; }
 
       .sidebar-center {
         flex-grow: 1; display: flex; align-items: center; justify-content: center;
@@ -59,15 +60,15 @@
         width: max-content;
       }
 
-      /* FONTE DIMINUÍDA AQUI */
+      /* FONTE DO MENU REDUZIDA PARA 8px */
       .nav-link-custom {
-        font-size: 9px; /* Fonte bem pequena e elegante */
-        letter-spacing: 0.7em; /* Mais espaçamento para compensar o tamanho */
+        font-size: 8px; /* Reduzido de 9px para 8px */
+        letter-spacing: 0.8em; /* Aumentado tracking para compensar */
         text-transform: uppercase; 
         font-weight: 700; text-decoration: none; 
         color: rgba(249,247,242,0.3);
         transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 10px 0; /* Aumenta a área de toque */
+        padding: 10px 0;
       }
       .nav-link-custom:hover { color: var(--sand); opacity: 1; }
 
@@ -132,24 +133,26 @@
         <a href="#contato" class="nav-link-custom">Contato</a>
         <a href="#depoimentos" class="nav-link-custom">Depoimentos</a>
         <a href="#portfolio" class="nav-link-custom">Portfólio</a>
-        <a href="#sobre" class="nav-link-custom">O Olhar</a>
+        <a href="#sobre" class="nav-link-custom">O Fotografo</a>
       </div>
     </div>
-
-  
   </aside>
 
-  <header class="d-lg-none bg-brand sticky top-0 z-[1000] border-b border-white/5">
-    <div class="flex justify-between items-center py-6 px-6">
+  <header class="d-lg-none bg-brand sticky top-0 z-[1000] border-b border-white/5 relative">
+    
+    <div class="flex justify-between items-center py-6 px-6 bg-brand relative z-[1001]">
       <img src="logo-azul.png" alt="Logo" width="100" class="invert brightness-0">
-      <button class="text-sand text-[10px] font-bold uppercase tracking-widest" data-bs-toggle="collapse" data-bs-target="#mMenu">Menu</button>
+      <button class="text-sand text-[10px] font-bold uppercase tracking-widest border-0 bg-transparent focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#mMenu" aria-expanded="false" aria-controls="mMenu">
+        Menu
+      </button>
     </div>
 
-    <div class="collapse bg-brand border-t border-white/10" id="mMenu">
+    <div class="collapse absolute top-full left-0 w-full bg-brand border-b border-white/10 shadow-2xl z-[1000]" id="mMenu">
       <ul class="list-unstyled p-12 text-center space-y-8 m-0">
-        <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">O Fotografo</a></li>
-        <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Portfólio</a></li>
-        <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em]">Contato</a></li>
+        <li><a href="#sobre" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">O Fotografo</a></li>
+        <li><a href="#portfolio" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Portfólio</a></li>
+        <li><a href="#contato" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Contato</a></li>
+        <li><a href="#depoimentos" class="no-underline text-sand text-xs uppercase tracking-[0.4em] block" onclick="closeMMenu()">Depoimentos</a></li>
       </ul>
     </div>
   </header>
@@ -326,6 +329,15 @@
       }
     };
 
+    // Função para fechar o menu mobile automaticamente ao clicar num link
+    function closeMMenu() {
+      const menu = document.getElementById('mMenu');
+      const bsCollapse = bootstrap.Collapse.getInstance(menu);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      }
+    }
+
     const topBtn = document.getElementById('toTop');
     window.onscroll = function() {
       if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -336,5 +348,4 @@
     };
   </script>
 </body>
-
 </html>
